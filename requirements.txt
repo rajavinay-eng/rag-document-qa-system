@@ -13,3 +13,4 @@ tiktoken
 python-dotenv
 python-multipart
 pydantic
+huggingface-hub==0.16.4
