@@ -7,3 +7,4 @@ pydantic
 pymupdf
 tiktoken
 openai
+rank-bm25
