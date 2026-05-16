@@ -1,16 +1,6 @@
 fastapi
 uvicorn
-streamlit
-openai
 chromadb
-langchain
-langchain-core
-sentence-transformers==2.2.2
-rank-bm25
 numpy
-pymupdf
-tiktoken
 python-dotenv
-python-multipart
 pydantic
-huggingface-hub==0.16.4

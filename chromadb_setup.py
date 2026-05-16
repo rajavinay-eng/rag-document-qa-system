@@ -1,9 +1,5 @@
 import chromadb
 import time
-from sentence_transformers import SentenceTransformer
-
-# Load embedding model
-embed_model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Persistent database
 client = chromadb.PersistentClient(path="./project2_db")
@@ -35,19 +31,15 @@ metadatas = [
 # IDs
 ids = [f"chunk_{i}" for i in range(len(chunks))]
 
-# Create embeddings
-embeddings = embed_model.encode(chunks)
-
 # Remove old chunks if already present
 try:
     collection.delete(ids=ids)
 except:
     pass
 
-# Add to database
+# Add to database WITHOUT embeddings
 collection.add(
     documents=chunks,
-    embeddings=embeddings.tolist(),
     metadatas=metadatas,
     ids=ids
 )
@@ -59,12 +51,9 @@ def search_documents(query, n_results=2):
 
     start = time.time()
 
-    # Embed query
-    query_embedding = embed_model.encode([query])
-
-    # Search ChromaDB
+    # Search ChromaDB directly
     results = collection.query(
-        query_embeddings=query_embedding.tolist(),
+        query_texts=[query],
         n_results=n_results,
         include=["documents", "distances"]
     )
