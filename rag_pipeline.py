@@ -6,12 +6,12 @@ import os
 import tiktoken
 
 from rank_bm25 import BM25Okapi
-from sentence_transformers import SentenceTransformer
+from chromadb.utils import embedding_functions
 from langchain_core.prompts import PromptTemplate
 
 # ── MODELS ────────────────────────────────────────────────
 
-embed_model = SentenceTransformer("all-MiniLM-L6-v2")
+embed_model = embedding_functions.DefaultEmbeddingFunction()
 
 enc = tiktoken.encoding_for_model(
     "gpt-3.5-turbo"
@@ -133,7 +133,7 @@ def index_document(
 
     texts = [c["text"] for c in chunks]
 
-    embeddings = embed_model.encode(texts)
+    embeddings = embed_model(texts)
 
     metadatas = [
         {
@@ -152,7 +152,7 @@ def index_document(
 
     collection.add(
         documents=texts,
-        embeddings=embeddings.tolist(),
+        embeddings=embeddings,
         metadatas=metadatas,
         ids=ids
     )
@@ -170,10 +170,10 @@ def hybrid_search(
     doc_id=None
 ):
 
-    query_emb = embed_model.encode([query])
+    query_emb = embed_model([query])
 
     query_params = {
-        "query_embeddings": query_emb.tolist(),
+        "query_embeddings": query_emb,
         "n_results": n_results,
         "include": [
             "documents",

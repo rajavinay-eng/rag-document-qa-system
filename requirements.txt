@@ -8,6 +8,6 @@ pymupdf
 tiktoken
 openai
 rank-bm25
-sentence-transformers
-scikit-learn
 langchain-core
+onnxruntime
+tokenizers
