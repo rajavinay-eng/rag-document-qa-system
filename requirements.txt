@@ -5,7 +5,7 @@ openai
 chromadb
 langchain
 langchain-core
-sentence-transformers
+sentence-transformers==2.2.2
 rank-bm25
 numpy
 pymupdf
