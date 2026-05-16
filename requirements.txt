@@ -5,3 +5,5 @@ numpy
 python-dotenv
 pydantic
 pymupdf
+tiktoken
+openai
