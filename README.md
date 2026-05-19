@@ -1,4 +1,4 @@
-# Production RAG Document Q&A System
+# rag-document-qa-system
 
 Production-ready Retrieval-Augmented Generation (RAG) system for intelligent document question-answering using semantic retrieval, vector search, and LLM-powered responses.
 
