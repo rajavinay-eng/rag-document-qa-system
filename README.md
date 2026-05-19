@@ -1,38 +1,36 @@
 # rag-document-qa-system
 
-Production-ready Retrieval-Augmented Generation (RAG) system for intelligent document question-answering using semantic retrieval, vector search, and LLM-powered responses.
+Retrieval-Augmented Generation (RAG) system for document question answering using semantic search, vector retrieval, and LLM-based responses.
 
-Live API Documentation:  
+### Live API Documentation
 https://production-rag-document-qa-system.onrender.com/docs
 
 ---
 
 # Overview
 
-This project demonstrates a production-oriented AI engineering workflow for document intelligence systems.
+This project demonstrates a backend-oriented AI workflow for building document intelligence systems using FastAPI, LangChain, ChromaDB, and OpenAI APIs.
 
-The system allows users to upload PDF documents, automatically process and chunk content, generate vector embeddings, retrieve semantically relevant information, and generate contextual answers using LLM inference.
+Users can upload PDF documents, process document content into semantic chunks, generate embeddings, retrieve relevant context using vector similarity search, and generate grounded answers through LLM inference.
 
-The project focuses on backend AI engineering, scalable retrieval pipelines, deployment, and real-world API architecture.
+The project focuses on practical AI engineering concepts including retrieval pipelines, backend APIs, vector databases, deployment workflows, and modular system design.
 
 ---
 
 # Key Features
 
 - PDF document ingestion
-- Semantic vector search
-- Retrieval-Augmented Generation (RAG)
-- Context-aware question answering
+- Semantic chunking pipeline
+- Embedding generation workflow
+- Vector similarity retrieval
+- Context-aware answer generation
 - FastAPI REST API backend
-- ChromaDB vector database integration
-- Embedding generation pipeline
+- ChromaDB integration
 - Hybrid retrieval workflow
-- Source-grounded responses
+- Dockerized deployment
 - Swagger/OpenAPI documentation
-- Docker-ready deployment
-- Production deployment on Render
-- Retrieval latency tracking
-- Modular backend architecture
+- Render deployment
+- Modular backend structure
 
 ---
 
@@ -46,7 +44,6 @@ The project focuses on backend AI engineering, scalable retrieval pipelines, dep
 ## AI / NLP
 - OpenAI API
 - LangChain
-- Tokenization pipelines
 
 ## Vector Database
 - ChromaDB
@@ -56,25 +53,22 @@ The project focuses on backend AI engineering, scalable retrieval pipelines, dep
 - Render
 
 ---
+# Architecture
 
-# System Architecture
+```mermaid
+flowchart TD
 
-```text
-User Upload PDF
-        ↓
-PDF Processing
-        ↓
-Text Chunking
-        ↓
-Embedding Generation
-        ↓
-Vector Storage (ChromaDB)
-        ↓
-Semantic Retrieval
-        ↓
-LLM Response Generation
-        ↓
-Final Context-Aware Answer
+A[PDF Documents] --> B[Chunking]
+B --> C[Embeddings]
+C --> D[ChromaDB Vector Store]
+
+E[User Query] --> F[FastAPI Backend]
+F --> G[LangChain Pipeline]
+G --> H[Hybrid Retrieval]
+H --> D
+D --> I[Relevant Context]
+I --> J[OpenAI API]
+J --> K[Final Response]
 ```
 
 ---
@@ -82,21 +76,25 @@ Final Context-Aware Answer
 # API Endpoints
 
 ## Health Check
+
 ```http
 GET /health
 ```
 
 ## Upload Document
+
 ```http
 POST /upload
 ```
 
 ## Query Documents
+
 ```http
 POST /query
 ```
 
 ## System Statistics
+
 ```http
 GET /stats
 ```
@@ -105,25 +103,29 @@ GET /stats
 
 # Example Workflow
 
-## Step 1 — Upload PDF
+## 1. Upload Documents
 
-The system processes uploaded PDF documents and generates semantic chunks.
+PDF documents are uploaded through the API.
 
-## Step 2 — Generate Embeddings
+## 2. Process Content
 
-Embeddings are generated for semantic retrieval.
+Documents are chunked into smaller semantic sections.
 
-## Step 3 — Store in Vector Database
+## 3. Generate Embeddings
 
-Chunks and embeddings are stored in ChromaDB for efficient retrieval.
+Embeddings are created for semantic retrieval.
 
-## Step 4 — Semantic Retrieval
+## 4. Store in ChromaDB
+
+Chunks and embeddings are stored in the vector database.
+
+## 5. Retrieve Relevant Context
 
 Relevant chunks are retrieved using vector similarity search.
 
-## Step 5 — Answer Generation
+## 6. Generate Final Response
 
-The final answer is generated using retrieved context and LLM inference.
+The LLM generates a grounded response using retrieved context.
 
 ---
 
@@ -133,7 +135,7 @@ The final answer is generated using retrieved context and LLM inference.
 - What are the key concepts discussed?
 - Explain the important topics
 - What does the document mention about AI engineering?
-- What are the interview preparation recommendations?
+- What recommendations are provided in the document?
 
 ---
 
@@ -142,7 +144,7 @@ The final answer is generated using retrieved context and LLM inference.
 ## Clone Repository
 
 ```bash
-git clone https://github.com/rajavinay-eng/production-rag-document-qa-system.git
+git clone https://github.com/rajavinay-eng/rag-document-qa-system.git
 ```
 
 ## Install Dependencies
@@ -163,7 +165,7 @@ uvicorn api:app --reload
 
 The application is containerized using Docker and deployed on Render.
 
-Production Deployment:
+### Deployment URL
 
 https://production-rag-document-qa-system.onrender.com/docs
 
@@ -173,35 +175,34 @@ https://production-rag-document-qa-system.onrender.com/docs
 
 This project demonstrates practical experience with:
 
-- Production AI backend engineering
-- Retrieval-Augmented Generation pipelines
+- Retrieval-Augmented Generation (RAG)
 - Vector databases
-- Embedding workflows
-- REST API development
-- AI system deployment
-- Retrieval optimization
-- Latency monitoring
-- Modular AI architecture
-- Real-world AI application deployment
+- Semantic retrieval workflows
+- FastAPI backend development
+- AI API integration
+- Dockerized deployment
+- Modular backend architecture
+- Context-aware LLM applications
 
 ---
 
 # Future Improvements
 
-- Multi-document retrieval
+- Multi-document retrieval support
 - Authentication and authorization
 - Conversation memory
 - Advanced reranking models
-- Monitoring dashboard
-- Kubernetes deployment
-- Async processing pipelines
 - Streaming responses
-- Multi-user architecture
+- Async processing workflows
+- Monitoring and observability
+- Multi-user support
 
 ---
 
-# Author
+# Environment Variables
 
-Raja Vinay Kumar Koppula
+Create a `.env` file:
 
-AI Engineer Portfolio Project
+```env
+OPENAI_API_KEY=your_api_key
+```
