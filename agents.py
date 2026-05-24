@@ -1,3 +1,7 @@
+"""
+Agent orchestration utilities for retrieval workflow experiments.
+Implements tool routing for search, calculation, and document listing workflows.
+"""
 # project2/agents.py
 # Project 2 — RAG Document Q&A System
 # Component: Agent + Tool Calling
