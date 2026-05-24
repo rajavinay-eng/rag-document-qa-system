@@ -1,6 +1,6 @@
 # rag-document-qa-system
 
-Retrieval-Augmented Generation (RAG) system for document question answering using semantic search, vector retrieval, and LLM-based responses.
+Retrieval-Augmented Generation (RAG) system for document question answering using semantic search, hybrid retrieval workflows, vector databases, and LLM-powered responses.
 
 ### Live API Documentation
 https://production-rag-document-qa-system.onrender.com/docs
@@ -11,9 +11,9 @@ https://production-rag-document-qa-system.onrender.com/docs
 
 This project demonstrates a backend-oriented AI workflow for building document intelligence systems using FastAPI, LangChain, ChromaDB, and OpenAI APIs.
 
-Users can upload PDF documents, process document content into semantic chunks, generate embeddings, retrieve relevant context using vector similarity search, and generate grounded answers through LLM inference.
+Users can upload PDF documents, process document content into semantic chunks, generate embeddings, retrieve relevant context using hybrid semantic retrieval workflows, and generate grounded answers through LLM inference.
 
-The project focuses on practical AI engineering concepts including retrieval pipelines, backend APIs, vector databases, deployment workflows, and modular system design.
+The project focuses on practical AI engineering concepts including retrieval pipelines, backend APIs, vector databases, deployment workflows, observability, and modular system design.
 
 ---
 
@@ -22,15 +22,15 @@ The project focuses on practical AI engineering concepts including retrieval pip
 - PDF document ingestion
 - Semantic chunking pipeline
 - Embedding generation workflow
-- Vector similarity retrieval
+- Hybrid semantic retrieval
 - Context-aware answer generation
 - FastAPI REST API backend
 - ChromaDB integration
-- Hybrid retrieval workflow
 - Dockerized deployment
 - Swagger/OpenAPI documentation
-- Render deployment
+- Render cloud deployment
 - Modular backend structure
+- Logging and observability workflows
 
 ---
 
@@ -44,6 +44,7 @@ The project focuses on practical AI engineering concepts including retrieval pip
 ## AI / NLP
 - OpenAI API
 - LangChain
+- sentence-transformers
 
 ## Vector Database
 - ChromaDB
@@ -53,6 +54,7 @@ The project focuses on practical AI engineering concepts including retrieval pip
 - Render
 
 ---
+
 # Architecture
 
 ```mermaid
@@ -121,7 +123,7 @@ Chunks and embeddings are stored in the vector database.
 
 ## 5. Retrieve Relevant Context
 
-Relevant chunks are retrieved using vector similarity search.
+Relevant chunks are retrieved using hybrid semantic retrieval workflows.
 
 ## 6. Generate Final Response
 
@@ -176,19 +178,21 @@ https://production-rag-document-qa-system.onrender.com/docs
 This project demonstrates practical experience with:
 
 - Retrieval-Augmented Generation (RAG)
+- Hybrid retrieval workflows
 - Vector databases
-- Semantic retrieval workflows
+- Semantic retrieval systems
 - FastAPI backend development
+- REST API engineering
 - AI API integration
 - Dockerized deployment
 - Modular backend architecture
 - Context-aware LLM applications
+- Logging and observability workflows
 
 ---
 
 # Future Improvements
 
-- Multi-document retrieval support
 - Authentication and authorization
 - Conversation memory
 - Advanced reranking models
